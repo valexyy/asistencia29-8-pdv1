@@ -41,3 +41,27 @@ void mousePressed() {
     formaColor = generarColorPastel();
   }
 }
+// Función para generar un color pastel
+color generarColorPastel() {
+  int r = (int)random(180, 255);
+  int g = (int)random(180, 255);
+  int b = (int)random(180, 255);
+  return color(r, g, b);
+}
+
+// Función para dibujar una estrella
+void dibujaEstrella(float centroX, float centroY, float radioExterior, float radioInterior, int puntas) {
+  float angulo = TWO_PI / puntas;
+  float medioAngulo = angulo / 2.0;
+
+  beginShape();
+  for (float a = 0; a < TWO_PI; a += angulo) {
+    float sx = centroX + cos(a) * radioExterior;
+    float sy = centroY + sin(a) * radioExterior;
+    vertex(sx, sy);
+    sx = centroX + cos(a + medioAngulo) * radioInterior;
+    sy = centroY + sin(a + medioAngulo) * radioInterior;
+    vertex(sx, sy);
+  }
+  endShape(CLOSE);
+}
