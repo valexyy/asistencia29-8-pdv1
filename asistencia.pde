@@ -30,3 +30,14 @@ void draw() {
     dibujaEstrella(x, y, tamano / 2, tamano, 5);
   }
 }
+void mousePressed() {
+  // Solo cambia la forma y el color si haces clic dentro de ella
+  float distancia = dist(x, y, mouseX, mouseY);
+  if (distancia < tamano / 2) {
+    esCirculo = !esCirculo;
+    
+    // Cambia los colores a tonalidades pastel aleatorias
+    fondoColor = generarColorPastel();
+    formaColor = generarColorPastel();
+  }
+}
