@@ -11,3 +11,22 @@ void setup() {
   x = width / 2;
   y = height / 2;
   tamano = 100;
+
+ // Colores iniciales pastel
+  fondoColor = color(220, 255, 220); // Verde menta
+  formaColor = color(255, 200, 220); // Rosa claro
+}
+
+void draw() {
+  background(fondoColor);
+  
+  if (esCirculo) {
+    fill(formaColor);
+    noStroke();
+    ellipse(x, y, tamano, tamano);
+  } else {
+    fill(formaColor);
+    noStroke();
+    dibujaEstrella(x, y, tamano / 2, tamano, 5);
+  }
+}
